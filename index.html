@@ -3,41 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IKORITA - Em Breve</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #ffffff;
-            font-family: sans-serif;
-            color: #4a0412;
-        }
-        .container {
-            text-align: center;
-        }
-        img {
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-        }
-        p {
-            opacity: 0.7;
-        }
-    </style>
+    <title>IKORITA | Gestão Hospitalar de Alta Performance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<div class="container">
-    <img src="logo.png" alt="IKORITA Logo">
-    <h1>EM BREVE</h1>
-    <p>Estamos construindo o futuro da gestão em saúde.</p>
-</div>
+<body data-theme="light">
+
+<nav class="navbar" id="navbar">
+    <div class="nav-content">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo IKORITA" class="nav-logo">
+            <span class="brand-name">IKORITA</span>
+        </div>
+        <div class="nav-actions">
+            <button id="theme-toggle" class="icon-btn" aria-label="Alternar tema"><i class="fa-solid fa-moon"></i></button>
+            <a href="#early-access" class="btn-primary btn-sm">Solicitar Acesso</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-grid">
+        <div class="hero-text reveal">
+            <div class="badge"><i class="fa-solid fa-stethoscope"></i> Feito por quem entende o plantão</div>
+            <h1>O PEP que não trava o seu atendimento.</h1>
+            <p>Esqueça os sistemas engessados. A IKORITA unifica recepção, triagem e consultório em uma plataforma veloz, garantindo que o foco da equipe seja 100% no paciente, não na burocracia do software.</p>
+            <div class="hero-stats">
+                <div class="stat-item"><span class="counter" data-target="0">0</span>s <span>Atrito na Interface</span></div>
+                <div class="stat-item"><span class="counter" data-target="100">0</span>% <span>Rastreabilidade</span></div>
+                <div class="stat-item"><span class="counter" data-target="360">0</span>° <span>Visão do Paciente</span></div>
+            </div>
+        </div>
+
+        <div class="hero-visual reveal delay-2">
+            <div class="glass-card dashboard-mockup floating">
+                <div class="dashboard-header">
+                    <div class="pulse-indicator"></div>
+                    <span>Live Monitor | Pronto-Socorro</span>
+                </div>
+
+                <div class="dashboard-kpis">
+                    <div class="kpi-box">
+                        <span class="kpi-label">Fila de Espera</span>
+                        <span class="kpi-value">12</span>
+                    </div>
+                    <div class="kpi-box">
+                        <span class="kpi-label">T. Médio Triagem</span>
+                        <span class="kpi-value">08 <small>min</small></span>
+                    </div>
+                    <div class="kpi-box alert-box">
+                        <span class="kpi-label">Emergências</span>
+                        <span class="kpi-value">02</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-queue">
+                    <div class="queue-item">
+                        <div class="patient-info-min">
+                            <strong>Maria Oliveira</strong>
+                            <span>Chegada: 10:45 | FC: 85 bpm</span>
+                        </div>
+                        <span class="tag tag-amarelo">AMARELO</span>
+                    </div>
+                    <div class="queue-item critical">
+                        <div class="patient-info-min">
+                            <strong>João Silva</strong>
+                            <span>Chegada: 11:10 | PA: 180/110</span>
+                        </div>
+                        <span class="tag tag-vermelho">VERMELHO</span>
+                    </div>
+                    <div class="queue-item">
+                        <div class="patient-info-min">
+                            <strong>Ana Souza</strong>
+                            <span>Chegada: 09:30 | Temp: 37.5°C</span>
+                        </div>
+                        <span class="tag tag-verde">VERDE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="analytics-section reveal">
+    <div class="section-title">
+        <h2>Gestão Orientada a Dados</h2>
+        <p>Acompanhe o fluxo assistencial em tempo real com nossa inteligência.</p>
+    </div>
+    <div class="chart-container glass-card">
+        <div class="chart-box">
+            <canvas id="triageChart"></canvas>
+        </div>
+        <div class="chart-info">
+            <h3>Distribuição de Risco (Tempo Real)</h3>
+            <p>Nosso sistema consolida automaticamente os dados da triagem, fornecendo à gestão uma visão clara do peso assistencial do plantão no momento exato.</p>
+            <ul class="chart-legend">
+                <li><span class="color-box red"></span> Emergência (Imediato)</li>
+                <li><span class="color-box yellow"></span> Urgência (Até 60 min)</li>
+                <li><span class="color-box green"></span> Pouco Urgente (Até 120 min)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="premium-features reveal">
+    <div class="section-title">
+        <h2>Ecossistema Clínico Integrado</h2>
+        <p>Módulos independentes rodando em alta performance. A tecnologia invisível que salva vidas na ponta.</p>
+    </div>
+
+    <div class="bento-grid">
+        <div class="bento-card feature-prontuario reveal delay-1">
+            <div class="card-glow"></div>
+            <div class="card-content">
+                <i class="fa-solid fa-folder-tree"></i>
+                <h3>Prontuário Vitalício Relacional</h3>
+                <p>Estrutura de dados milimetricamente normalizada. Cada episódio, alergia e histórico é amarrado por Chaves Estrangeiras (FK), impedindo a duplicidade crônica que destrói a performance dos hospitais.</p>
+                <ul class="feature-tags">
+                    <li>Banco Relacional</li>
+                    <li>Data Integrity</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bento-card feature-triagem reveal delay-2">
+            <div class="card-glow"></div>
+            <div class="card-content">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <h3>Triagem Instantânea</h3>
+                <p>Algoritmo de Classificação de Risco ativado na aferição dos Sinais Vitais, disparando alertas de tela baseados no protocolo Manchester.</p>
+            </div>
+        </div>
+
+        <div class="bento-card feature-auditoria reveal delay-3">
+            <div class="card-glow"></div>
+            <div class="card-content">
+                <i class="fa-solid fa-user-shield"></i>
+                <h3>Auditoria Implacável</h3>
+                <p>Logs jurídicos automatizados. Cada insert ou update é assinado digitalmente com o ID do profissional logado e seu respectivo conselho de classe.</p>
+            </div>
+        </div>
+
+        <div class="bento-card feature-tech reveal delay-4">
+            <div class="card-glow"></div>
+            <div class="card-content tech-content">
+                <div class="tech-text">
+                    <i class="fa-solid fa-microchip"></i>
+                    <h3>Motor Backend Robusto</h3>
+                    <p>Construído com Java e Spring Boot, a arquitetura garante segurança e persistência blindada. Preparado para conteinerização com Docker e orquestração em Cloud, suportando milhares de requisições simultâneas sem gargalos.</p>
+                </div>
+                <div class="tech-stack-icons">
+                    <i class="fa-brands fa-java" title="Java"></i>
+                    <i class="fa-brands fa-docker" title="Docker"></i>
+                    <i class="fa-solid fa-database" title="Database"></i>
+                    <i class="fa-solid fa-server" title="Cloud"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="early-access" class="cta-section reveal">
+    <div class="glass-container">
+        <h2>Pronto para evoluir?</h2>
+        <p>Deixe seu e-mail e seja notificado quando liberarmos o ambiente de homologação para testes do PEP.</p>
+        <form action="COLE_AQUI_SEU_URL_DO_FORMSPREE" method="POST" class="lead-form">
+            <input type="email" name="email" placeholder="nome@hospital.com.br" required>
+            <button type="submit" class="btn-primary">Entrar na Lista VIP</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <h2 style="color: white; letter-spacing: 2px;">IKORITA</h2>
+        <p>A intersecção perfeita entre cuidado humano e tecnologia avançada.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
