@@ -154,4 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 glow.style.transform = `translate(-50%, -50%)`;
             });
         });
+
+        // 7. Relógio em Tempo Real para o Dashboard
+          function updateClock() {
+              const now = new Date();
+              document.getElementById('real-time-clock').innerText = now.toLocaleTimeString('pt-BR');
+          }
+          setInterval(updateClock, 1000);
+          updateClock();
 });
